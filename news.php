@@ -2,6 +2,23 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
+if (isset($_GET['des']) && isset($_SESSION['currentUser'])){
+    if($_GET['des']=='del'){
+
+        $sqlQuery = 'delete from News where id = '.$_GET["id"];
+        
+        try{  
+            require("dbconfig.php");
+            
+            $smtp = $conn->query($sqlQuery);
+        }
+        catch(Exeption $e)
+        {
+            echo "DB Falied! ".$e;
+        }
+    }
+}
+
 include("header.php");
 $output = '';
 
@@ -15,7 +32,7 @@ $output .= '<div id="main" class="container margin-top">
         <div id="primary" class="site-content">
             <div id="content" role="main">';
 
-try{
+try{ 
             
     require("dbconfig.php");
     //$row[3] - DateTime Create
@@ -27,12 +44,13 @@ try{
     {
         $output .= '<article>
                     <header class="entry-header">
-                        <h2 class="entry-title">
+                        <h2 style="display:inline-block" class="entry-title">
                             <a href="#">'.stripslashes($row[1]).'</a>
                         </h2>
+                        <div style="display:inline-block; margin: 20px"><a href="../editnews.php?des=edit&id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
                     </header>
                     <div class="entry-summary">
-                        <p>'.stripslashes($row[2]).'
+                        <p>'.substr(stripslashes($row[2]), 0, 500).'
                             <span class="read-more">
                                 <a href="#'.$row[0].'">Read more</a>
                             </span>
