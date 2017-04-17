@@ -40,7 +40,7 @@
         <a href="#">2</a>
         <a href="#">3</a>
     </div>
-</div>a
+</div>
 	</div><!-- #main .wrapper -->
        <?php include("footer.php") ?>
         <div class="clear"></div>
