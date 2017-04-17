@@ -1,5 +1,9 @@
 /* Clearing floats */
 
+a:hover {
+    text-decoration: none;
+}
+
 .clear:after,
 .wrapper2:after,
 .format-status .entry-header:after {
@@ -24,8 +28,17 @@
     padding: 0px;
 }
 
+a.admin-control {
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    background: #00a1e0;
+}
 
-/* Small headers */
+a.admin-control:hover {
+    color: white;
+    background: #0B91EA;
+}
 
 .archive-title,
 .page-title {
@@ -92,11 +105,6 @@ a {
     outline: none;
     color: #0B91EA;
     text-decoration: none;
-}
-
-a:hover {
-    color: #0C87D3;
-    text-decoration: underline;
 }
 
 

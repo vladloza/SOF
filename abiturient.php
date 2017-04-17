@@ -560,19 +560,19 @@
             <div class="clearfix jobs">
             <div class="col-xs-4 center-text no-float">
               <img src="ico/piggy-bank.svg">
-              <div class="wrapper2">
+              <div class="margin-top">
               <p>Сфера <strong>бізнесу</strong>, у якому використовуються програмні системи й інформаційні технології;</p>
               </div>
             </div>
             <div class="col-xs-4 center-text no-float">
               <img src="ico/computer.svg">
-              <div class="wrapper2">
+              <div class="margin-top">
               <p><strong>Розробка конкурентноздатного програмного забезпечення</strong> для фінансового, виробничого, телекомунікаційного сектору економіки, охорони здоров'я, індустрії розваг, підприємств торгівлі, урядових закладів, оборонної промисловості тощо.</p>
               </div>
             </div>
             <div class="col-xs-4 center-text no-float">
               <img src="ico/user.svg">
-              <div class="wrapper2">
+              <div class="margin-top">
               <p>Сфера <strong>замовленого програмування й програмного аутсорсінгу</strong></p>
               </div>
             </div>

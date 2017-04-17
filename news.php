@@ -1,5 +1,10 @@
 <?php include("header.php") ?>
 <div id="main" class="container margin-top">
+<div id="addNews">
+    <div>
+        <a href="#" class="admin-control">Додати новину</a>
+    </div>
+</div>
     <div class="wrapper2">
     <div id="primary" class="site-content">
         <div id="content" role="main">
