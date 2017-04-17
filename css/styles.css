@@ -1,0 +1,214 @@
+body {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	margin: 0px;
+	padding: 0px;
+	font-family: "Open Sans", sans-serif;
+	color:#1e1e1e;
+	font-size: 14px;
+	line-height: 1.42857143;
+	background-color: #fff;
+}
+ @font-face {
+    font-family: 'pf_handbook_prothin';
+    src: url(../fonts/HandbookPro.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+hr {
+	margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+h2 {
+  font-family: 'pf_handbook_prothin', 'Open Sans', serif;
+  font-weight: bold;
+}
+img {
+	width: 100%;
+}
+section {
+	margin: 20px 0px;
+}
+tr:last-child {
+	border-right: #d6d6d6 1px solid;
+}
+td {
+	vertical-align: baseline;
+	padding: 0px 5px;
+	border-left: #d6d6d6 1px solid;
+	width: 25%;
+}
+th {
+	    background: #edf300;
+	    padding: 5px;
+}
+tbody {
+	border-bottom: #d6d6d6 1px solid;
+}
+ul
+	{
+		list-style: none;
+	}
+	p {
+		line-height: 24px;
+		margin-bottom: 10px;
+		font-size: 14px;
+	}
+	a > img {
+		width:35px;
+	}
+	a:hover, a:focus {
+		text-decoration: none;
+	}
+	#header 
+	{
+		border-bottom: #d6d6d6 1px solid;
+	}
+	#header ul
+	{
+		float:right;
+		margin: 0px;
+	} 
+	#header ul li {
+		display: inline-block;
+		position: relative;
+	}
+	#logo-container 
+	{
+		float: left;
+		margin-top: 10px;
+	}
+	#logo-container > a
+	{
+		float: left;
+		padding: 10px;
+	}
+	#header ul a
+	{
+		display: block;
+		padding: 25px 15px;
+	}
+	#third {
+		float: right;
+		width: 25%;
+		position: relative;
+	}
+	#sixth {
+		width: 75%;
+		float: left;
+	}
+	#sixth h2
+	{
+		margin-bottom: 25px;
+		font-size: 34px;
+		line-height: 40px;
+		text-align: right;
+	}
+	.hr-invisible-small {
+		float: left;
+		width: 100%;
+		margin: 20px 0px;
+		display: block;
+		clear: both;
+	}
+	.hr-invisible {
+		float: left;
+		width: 100%;
+		margin: 40px 0px;
+		display: block;
+		clear: both;
+	}
+	.no-margin {
+		margin: 0px;
+	}
+	.rightimg {
+		float: right;
+		width: 40%;
+		padding-left: 10px;
+	}
+	.leftimg {
+		float: left;
+		width: 40%;
+		padding-right: 10px;
+	}
+	.small {
+		width: 25%;
+	}
+	.bg-text p:nth-child(2n-1)
+	{
+		background: antiquewhite;
+	}
+	.bg-text p:nth-child(2n)
+	{
+		background: whitesmoke;
+	}
+	.bg-text2 p:nth-child(2n-1)
+	{
+		background: #fbffc9;
+	}
+	.bg-text2 p:nth-child(2n)
+	{
+		background: whitesmoke;
+	}
+	#five-cells th {
+		width: 20%;
+		background: #f49c14;
+		color: white;
+	}
+	#five-cells td {
+		width: 20%;
+	}
+	.wrapper {
+		margin-bottom: 20px;
+	}
+	.wrapper2 {
+		margin-top: 20px;
+	}
+
+	.icons img{
+		width: 25%;
+	}
+	.center-text
+	{
+		text-align: center;
+	}
+	.glyphicon-fire {
+		color: red;
+	}
+	.jobs {
+		text-align: center;
+		margin-top: 40px;
+	}
+	.jobs img {
+		width: 40%;
+	}
+	.no-float {
+    display: inline-table;
+    float: initial;
+	}
+	.col-xs-4 {
+		width: 33%;
+	}
+	footer p {
+		font-weight: lighter;
+	}
+	@media (min-width: 768px){
+     .icons > div {
+	    width: 25% !important;
+	    float: left;
+	}
+	.icons img {
+		width: 50%;
+	}
+
+}
+	@media (min-width: 992px){
+     .icons img {
+	    width: 50%;
+	}
+
+
