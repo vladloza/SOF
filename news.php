@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
@@ -6,6 +7,14 @@ include("header.php");
 $output = '';
 
 $output .= '<div id="main" class="container margin-top">
+=======
+<div id="main" class="container margin-top">
+<div id="addNews">
+    <div>
+        <a href="#" class="admin-control">Додати новину</a>
+    </div>
+</div>
+>>>>>>> origin/master
     <div class="wrapper2">
         <div id="primary" class="site-content">
             <div id="content" role="main">';
