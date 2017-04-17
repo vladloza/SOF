@@ -14,9 +14,14 @@ function add_edit($id=0, $title='', $text=''){
                 <td colspan="2"><b>Текст:</b></td>
             </tr>
             <tr>
-                <td colspan="2"><textarea name="text" style="width: 99%; height: 200px">'.$text.'</textarea></td>
+                <td colspan="2"><textarea name="text" id="editor1" style="width: 99%; height: 200px">'.$text.'</textarea></td>
             </tr>
-            <tr><td colspan="2" align="center"><input type="submit" ';
+            <tr><td colspan="2" align="center"><input type="submit" 
+            </table>
+                    <script type="text/javascript">
+            var editor = CKEDITOR.replace( "editor1" );
+            CKFinder.setupCKEditor( editor );
+        </script>';
     if ($id) {
         $out .= 'name="edit" value="Edit"'; 
     }
