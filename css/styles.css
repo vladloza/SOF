@@ -243,7 +243,6 @@
     
     .themonic-nav li {
         font-size: 12px;
-        padding: 10px 0px;
         line-height: 1.42857143;
         width: auto;
     }
@@ -259,7 +258,11 @@
     }
     
     .themonic-nav li a {
-        padding: 0 20px;
+        padding: 10px 0px;
+        display: block;
+        color: #fff;
+        text-transform: uppercase;
+        transition: .3s ease 0s;
     }
     
     .themonic-nav li a:hover {
@@ -279,7 +282,7 @@
     .entry-header .entry-title {
         font-size: 28px;
         line-height: 1.2;
-        font-weight: normal;
+        font-weight: bold;
         margin-bottom: 0px;
     }
     
@@ -291,10 +294,6 @@
     .entry-admin {
         float: right;
         padding-left: 10px;
-    }
-    
-    .entry-title a {
-        font-weight: bold;
     }
     
     .entry-header .entry-title a:hover {
@@ -358,7 +357,8 @@
     
     .image-container {
         float: left;
-        padding-right: 10px;
+        padding-right: 15px;
+        padding-bottom: 15px
     }
     
     .wrapper2 {
@@ -373,6 +373,29 @@
     .wrapper2:after {
         display: table;
         content: "";
+    }
+    
+    .main-image {
+        display: inline-block;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .nav-previous,
+    .nav-next {
+        display: inline-block;
+        width: 47%;
+    }
+    
+    .nav-previous a {
+        display: block;
+        float: left;
+    }
+    
+    .nav-next a {
+        display: block;
+        float: right;
+        text-align: right;
     }
     /*--------------------pager -------------------*/
     
