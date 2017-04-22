@@ -49,7 +49,7 @@ try{
                         <h2 style="display:inline-block" class="entry-title">
                             <a href="#">'.stripslashes($row[1]).'</a>
                         </h2>
-                        <div style="display:inline-block; margin: 20px"><a href="../editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
+                        <div style="display:inline-block; margin: 20px"><a href="editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
                     </header>
                     <div class="entry-summary">
                         <p>'.html_entity_decode($row[2]).' 
