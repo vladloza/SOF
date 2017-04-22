@@ -61,7 +61,7 @@ try{
                                 
                             </header>
                             <div class="entry-summary">
-                                <p>'.html_entity_decode($row[2]).' 
+                                <p>'.substr(html_entity_decode($row[2]), 0, 350).'...'.' 
                                     <span class="read-more">
                                         <a href="item.php?id='.$row[0].'">Read more</a>
                                     </span>
