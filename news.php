@@ -78,11 +78,6 @@ catch(Exeption $e)
 
 $output .= '</div>
         </div>
-        <div class="pager">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-        </div>
     </div>
 </div>
 </div>
