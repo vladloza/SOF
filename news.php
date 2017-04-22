@@ -8,7 +8,7 @@ if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
         $sqlQuery = 'delete from News where id = '.$_GET["id"];
         
         try{  
-            require("dbconfig.php");
+            include("dbconfig.php");
             
             if($smtp = $conn->query($sqlQuery))
             {
@@ -41,7 +41,7 @@ $output .= '<div id="main" class="container margin-top">
 
 try{ 
             
-    require("dbconfig.php");
+    include("dbconfig.php");
     //$row[3] - DateTime Create
     $sqlQuery = 'select * from News order by id desc';
 

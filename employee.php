@@ -5,7 +5,7 @@ if (isset($_GET['id'])){
     $output = '';
 
     try{             
-        require("dbconfig.php");
+        include("dbconfig.php");
         $id = $_GET["id"];
         $sqlQuery = "select * from Employees where id = '$id'";
 

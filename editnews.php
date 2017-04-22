@@ -8,7 +8,7 @@ require("addnewsscript.php");
 $sqlQuery = 'select * from News where id = '.$_GET["id"];
 
 try{  
-    require("dbconfig.php");
+    include("dbconfig.php");
     
     $smtp = $conn->query($sqlQuery);
 
