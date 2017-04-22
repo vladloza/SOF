@@ -43,7 +43,7 @@ try{
             
     include("dbconfig.php");
     //$row[3] - DateTime Create
-    $sqlQuery = 'select * from News order by id desc';
+    $sqlQuery = 'select * from News order by id desc limit 10';
 
     $result = $conn->query($sqlQuery);
         
@@ -53,12 +53,13 @@ try{
                         <div class="image-container">
                             <img src="data:image;base64, '.$row[5].'"/>
                         </div>
-                        <div class="body-container">
+                        <div class="body-container clearfix">
                         <header class="entry-header">
-                            <h2 style="display:inline-block" class="entry-title">
+                        <div class="entry-admin"><a href="editnews.php?id='.$row[0].'">Редагувати</a> | <a href="?des=del&id='.$row[0].'">Видалити</a></div>
+                            <h2 class="entry-title">
                                 <a href="#">'.stripslashes($row[1]).'</a>
                             </h2>
-                            <div style="display:inline-block"><a href="editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
+                            
                         </header>
                         <div class="entry-summary">
                             <p>'.html_entity_decode($row[2]).' 
