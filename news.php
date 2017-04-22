@@ -49,21 +49,25 @@ try{
         
     while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
     {
-        $output .= '<article>
-                    <header class="entry-header">
-                        <h2 style="display:inline-block" class="entry-title">
-                            <a href="#">'.stripslashes($row[1]).'</a>
-                        </h2>
-                        <div style="display:inline-block; margin: 20px"><a href="editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
-                    </header>
-                    <div class="entry-summary">
-                        <p>'.html_entity_decode($row[2]).' 
-                            <span class="read-more">
-                                <a href="#'.$row[0].'">Read more</a>
-                            </span>
-                        </p>   
-                    </div>
-                    <footer class="entry-meta"></footer>
+        $output .= '<article class="clearfix">
+                        <div class="image-container">
+                            <img src="data:image;base64, '.$row[5].'"/>
+                        </div>
+                        <div class="body-container">
+                        <header class="entry-header">
+                            <h2 style="display:inline-block" class="entry-title">
+                                <a href="#">'.stripslashes($row[1]).'</a>
+                            </h2>
+                            <div style="display:inline-block"><a href="editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
+                        </header>
+                        <div class="entry-summary">
+                            <p>'.html_entity_decode($row[2]).' 
+                                <span class="read-more">
+                                    <a href="#'.$row[0].'">Read more</a>
+                                </span>
+                            </p>   
+                        </div>
+                    </div>        
                 </article>';
     }
 }
@@ -81,7 +85,26 @@ $output .= '</div>
         </div>
     </div>
 </div>
-</div>';
+<script>
+
+fixBrokenImages = function( url ){
+    var img = document.getElementsByTagName("img");
+    var i=0, l=img.length;
+    for(;i<l;i++){
+        var t = img[i];
+        if(t.naturalWidth === 0){
+            //this image is broken
+            t.src = url;
+        }
+    }
+}
+ window.onload = function() {
+    fixBrokenImages("img/default.jpg");
+ };
+</script>
+</div>
+
+';
 
 echo $output;
 

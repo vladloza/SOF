@@ -272,10 +272,6 @@
     }
     /*------------------news------------------*/
     
-    .entry-header {
-        margin-bottom: 20px;
-    }
-    
     .entry-header img.wp-post-image {
         margin-bottom: 24px;
     }
@@ -284,7 +280,7 @@
         font-size: 28px;
         line-height: 1.2;
         font-weight: normal;
-        margin-bottom: 20px;
+        margin-bottom: 2%;
     }
     
     .entry-header .entry-title a {
@@ -314,7 +310,7 @@
     .site-content article {
         border-bottom: 2px double #F3F3F3;
         margin-bottom: 28px;
-        padding-bottom: 24px;
+        padding: 24px 0px;
         word-wrap: break-word;
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
@@ -353,6 +349,11 @@
         margin-bottom: 48px;
         padding-bottom: 22px;
         border-bottom: 1px solid #ededed;
+    }
+    
+    .image-container {
+        float: left;
+        padding-right: 10px;
     }
     
     .wrapper2 {
@@ -444,32 +445,13 @@
             display: none;
         }
         .entry-header .entry-title {
-            margin-top: 20px;
+            margin-top: 2%;
         }
         .wrapper2 {
             border: none;
         }
-    }
-    
-    @media screen and (max-width: 420px) {
-        .site-header {
-            height: auto;
-            border: none;
-        }
-        .entry-header .entry-title {
-            font-size: 20px;
-        }
-    }
-    
-    @media screen and (max-width: 440px) {
-        .site {
-            padding: 0 10px;
-        }
-        .entry-header {
-            margin-bottom: 10px;
-        }
-        .entry-header .entry-title {
-            margin-bottom: 10px;
+        .image-container {
+            width: 25%;
         }
     }
     
@@ -570,7 +552,10 @@
         }
         .entry-header .entry-title {
             font-size: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 2%;
+        }
+        .image-container {
+            width: 30%;
         }
     }
     
@@ -581,6 +566,9 @@
         body .site {
             padding: 24px 24px 0;
             margin-bottom: 24px;
+        }
+        .image-container {
+            width: 17%;
         }
     }
     
