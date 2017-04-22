@@ -1,12 +1,12 @@
 <?php
-    // ini_set('display_errors', 'On');
-    // error_reporting(E_ALL);
+    ini_set('display_errors', 'On');
+    error_reporting(E_ALL);
 
 function add_edit($id=0, $title='', $text=''){
     $out = '
     <div class="container">
     <div class="margin-top">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="'.$id.'">
         <div class="margin-top">
             <div class="editBlock">
@@ -16,7 +16,7 @@ function add_edit($id=0, $title='', $text=''){
             <div class="editBlock">
                 <span>Оберіть фото</span>
                 <div>
-                    <input id="Upload" type="file" name="file" accept="image/jpeg,image/png,image/gif"/>
+                    <input id="fileUpload" name="fileUpload" type="file" accept="image/jpeg,image/png,image/gif"/>
                 </div>
             </div>
             <div>
@@ -52,21 +52,33 @@ if(isset($_POST['add'])){
     $text = addslashes(htmlspecialchars($_POST['text']));
     $date = date("Y-m-d H:i:s");
 
-    $sqlQuery = "INSERT INTO News (Title, Text, CreateDate) VALUES (:title, :text, :date)";
+    $sqlQuery = "INSERT INTO News (Title, Text, CreateDate, ImagePath) VALUES (:title, :text, :date, :imgPath)";
 
     try{
+        $target_dir = 'uploads/';
+        $target_file = $target_dir . basename($_FILES['fileUpload']['name']);
         
-        require("dbconfig.php");
-        
-        $stmt = $conn->prepare($sqlQuery);
+        if (move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file))
+        {
+            require("dbconfig.php");
+            
+            $stmt = $conn->prepare($sqlQuery);
 
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':text', $text);
-        $stmt->bindParam(':date', $date);            
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':text', $text);
+            $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':imgPath', $target_file);
 
-        $stmt->execute();
-
-        header("Refresh:0; url=news.php");
+            if ($stmt->execute())
+            {
+                header("Refresh:0; url=news.php");
+            }
+            else
+            {
+                echo "Error!";
+            }
+        }
+        else { echo "Error!"; }
     }
     catch(Exeption $e)
     {
@@ -93,9 +105,14 @@ if(isset($_POST['edit'])){
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':id', $id);
 
-        $stmt->execute();
-
-        header("Refresh:0; url=news.php");
+        if ($stmt->execute())
+        {
+            header("Refresh:0; url=news.php");
+        }
+        else
+        {
+            echo "Error!";
+        }
     }
     catch(Exeption $e)
     {

@@ -10,9 +10,14 @@ if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
         try{  
             require("dbconfig.php");
             
-            $smtp = $conn->query($sqlQuery);
-           
-            header("Refresh:0; url=news.php");
+            if($smtp = $conn->query($sqlQuery))
+            {
+                header("Refresh:0; url=news.php");
+            }
+            else
+            {
+                echo "Error";
+            }
         }
         catch(Exeption $e)
         {
