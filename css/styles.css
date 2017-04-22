@@ -408,15 +408,16 @@
         background: #0B91EA;
     }
     
-    .addNewsBlock {
+    .editBlock {
         border-top: 1px solid #d7d7d7;
-    }
-    
-    .editTitle {
         background: #f8f8f8;
     }
     
-    .editTitle span {
+    .editBlock>div {
+        display: initial;
+    }
+    
+    .editBlock span {
         display: inline-block;
         width: 18%;
         font-size: 14px;
@@ -424,8 +425,9 @@
         padding: 10px 15px;
     }
     
-    .editTitle input {
+    .editBlock input {
         width: 80%;
+        display: inline-block;
     }
     
     @media screen and (max-width: 768px) {

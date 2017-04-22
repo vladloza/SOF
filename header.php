@@ -31,7 +31,7 @@ $output = '<!DOCTYPE html>
             <li><a href="#contact">Абітурієнту</a></li>
             <li><a href="#contact">Співробітники</a></li>
             <li><a href="#contact">Студентам</a></li>
-            <li><a href="#contact">Новини</a></li>
+            <li><a href="news.php">Новини</a></li>
             <li><a href="#contact">Послуги</a></li>
             <li><a href="#contact">Контакти</a></li>
           </ul>

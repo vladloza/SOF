@@ -8,10 +8,23 @@ function add_edit($id=0, $title='', $text=''){
     <div class="margin-top">
     <form method="POST">
         <input type="hidden" name="id" value="'.$id.'">
-        <div>
-        <div class="addNews">
+        <div class="margin-top">
+            <div class="editBlock">
+                <span>Заголовок:</span>
+               <div><input type="text" name="title" style="font-weight: bold" value="'.$title.'"></div>
+            </div>
+            <div class="editBlock">
+                <span>Оберіть фото</span>
+                <div>
+                    <input id="Upload" type="file" name="file" accept="image/jpeg,image/png,image/gif"/>
+                </div>
+            </div>
             <div>
-                <input class="admin-control" type="submit"';
+                <textarea name="text" id="editor1">'.$text.'</textarea>
+            </div>
+            <div class="addNews">
+                <div>
+                    <input class="admin-control" style="width:100%" type="submit"';
     if ($id) {
         $out .= 'name="edit" value="Редагувати">'; 
     }
@@ -21,23 +34,15 @@ function add_edit($id=0, $title='', $text=''){
 
     $out .= '</div>
         </div>
-        <div class="margin-top addNewsBlock">
-            <div class="editTitle">
-                <span>Заголовок:</span>
-               <div style="display:initial"><input type="text" name="title" value="'.$title.'"></div>
-            </div>
-            <div>
-                <textarea name="text" id="editor1">'.$text.'</textarea>
-            </div>
-            </div>
         </div>
-    </form>
+    </div>
+</form>
     <script type="text/javascript">
             var editor = CKEDITOR.replace( "editor1" );
             CKFinder.setupCKEditor( editor );
         </script>
-        </div>
-        </div>';
+    </div>
+</div>';
 
     return $out;
 }
@@ -45,7 +50,6 @@ function add_edit($id=0, $title='', $text=''){
 if(isset($_POST['add'])){        
     $title = addslashes(htmlspecialchars($_POST['title'])); 
     $text = addslashes(htmlspecialchars($_POST['text']));
-
     $date = date("Y-m-d H:i:s");
 
     $sqlQuery = "INSERT INTO News (Title, Text, CreateDate) VALUES (:title, :text, :date)";
