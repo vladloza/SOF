@@ -42,8 +42,7 @@ $output .= '<div id="main" class="container margin-top">
 try{ 
             
     include("dbconfig.php");
-    //$row[3] - DateTime Create
-    $sqlQuery = 'select * from News order by id desc limit 10';
+    $sqlQuery = 'select * from News order by id desc limit 5';
 
     $result = $conn->query($sqlQuery);
         
@@ -54,22 +53,22 @@ try{
                             <img src="data:image;base64, '.$row[5].'"/>
                         </div>
                         <div class="body-container clearfix">
-                        <header class="entry-header">
-                        <div class="entry-admin"><a href="editnews.php?id='.$row[0].'">Редагувати</a> | <a href="?des=del&id='.$row[0].'">Видалити</a></div>
-                            <h2 class="entry-title">
-                                <a href="item.php?id='.$row[0].'">'.stripslashes($row[1]).'</a>
-                            </h2>
-                            
-                        </header>
-                        <div class="entry-summary">
-                            <p>'.html_entity_decode($row[2]).' 
-                                <span class="read-more">
-                                    <a href="item.php?id='.$row[0].'">Read more</a>
-                                </span>
-                            </p>   
-                        </div>
-                    </div>        
-                </article>';
+                            <header class="entry-header">
+                            <div class="entry-admin"><a href="editnews.php?id='.$row[0].'">Редагувати</a> | <a href="?des=del&id='.$row[0].'">Видалити</a></div>
+                                <h2 class="entry-title">
+                                    <a href="item.php?id='.$row[0].'">'.stripslashes($row[1]).'</a>
+                                </h2>
+                                
+                            </header>
+                            <div class="entry-summary">
+                                <p>'.html_entity_decode($row[2]).' 
+                                    <span class="read-more">
+                                        <a href="item.php?id='.$row[0].'">Read more</a>
+                                    </span>
+                                </p>   
+                            </div>
+                        </div>        
+                    </article>';
     }
 }
 catch(Exeption $e)
@@ -87,11 +86,11 @@ $output .= '</div>
     </div>
 </div>
 </div>
-
-';
+<script src="js/ajax.js"></script>';
 
 echo $output;
 
 include("footer.php");
 
 ?>
+
