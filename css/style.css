@@ -28,14 +28,15 @@ a:hover {
     padding: 0px;
 }
 
-a.admin-control {
+.admin-control {
     padding: 10px;
     color: white;
     display: inline-block;
+    border: 1px solid transparent;
     background: #00a1e0;
 }
 
-a.admin-control:hover {
+.admin-control:hover {
     color: white;
     background: #0B91EA;
 }
@@ -220,6 +221,26 @@ a {
     margin-bottom: 48px;
     padding-bottom: 22px;
     border-bottom: 1px solid #ededed;
+}
+
+.addNewsBlock {
+    border-top: 1px solid #d7d7d7;
+}
+
+.editTitle {
+    background: #f8f8f8;
+}
+
+.editTitle span {
+    display: inline-block;
+    width: 18%;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.editTitle input {
+    width: 80%;
 }
 
 .entry-summary .read-more {

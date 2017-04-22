@@ -3,35 +3,41 @@
     // error_reporting(E_ALL);
 
 function add_edit($id=0, $title='', $text=''){
-    $out = '<form method="POST">
+    $out = '
+    <div class="container">
+    <div class="margin-top">
+    <form method="POST">
         <input type="hidden" name="id" value="'.$id.'">
-        <table cellpadding="0" cellspacing="0" border="0" width="80%" align="center">
-            <tr>
-                <td><b>Заголовок:</b></td>
-                <td><input type="text" name="title" value="'.$title.'" style="width: 98%"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><b>Текст:</b></td>
-            </tr>
-            <tr>
-                <td colspan="2"><textarea name="text" id="editor1" style="width: 99%; height: 200px">'.$text.'</textarea></td>
-            </tr>
-            <tr><td colspan="2" align="center"><input type="submit" 
-            </table>
-                    <script type="text/javascript">
-            var editor = CKEDITOR.replace( "editor1" );
-            CKFinder.setupCKEditor( editor );
-        </script>';
+        <div>
+        <div class="addNews">
+            <div>
+                <input class="admin-control" type="submit"';
     if ($id) {
-        $out .= 'name="edit" value="Edit"'; 
+        $out .= 'name="edit" value="Редагувати">'; 
     }
     else { 
-        $out .= 'name="add" value="Add"';
+        $out .= 'name="add" value="Додати">';
     }
 
-    $out .= '></td></tr>
-        </table>
-    </form>';
+    $out .= '</div>
+        </div>
+        <div class="margin-top addNewsBlock">
+            <div class="editTitle">
+                <span>Заголовок:</span>
+               <div style="display:initial"><input type="text" name="title" value="'.$title.'"></div>
+            </div>
+            <div>
+                <textarea name="text" id="editor1">'.$text.'</textarea>
+            </div>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+            var editor = CKEDITOR.replace( "editor1" );
+            CKFinder.setupCKEditor( editor );
+        </script>
+        </div>
+        </div>';
 
     return $out;
 }

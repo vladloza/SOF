@@ -50,7 +50,7 @@ try{
                         <div style="display:inline-block; margin: 20px"><a href="../editnews.php?des=edit&id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
                     </header>
                     <div class="entry-summary">
-                        <p>'.substr(stripslashes($row[2]), 0, 500).'
+                        <p>'.html_entity_decode($row[2]).' 
                             <span class="read-more">
                                 <a href="#'.$row[0].'">Read more</a>
                             </span>
