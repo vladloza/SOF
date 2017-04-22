@@ -66,7 +66,7 @@ if(isset($_POST['add'])){
 
         $stmt->execute();
 
-        if($stmt) { echo '<font color="green">Запись добавлена!</font>';}
+        header("Refresh:0; url=news.php");
     }
     catch(Exeption $e)
     {
@@ -95,7 +95,7 @@ if(isset($_POST['edit'])){
 
         $stmt->execute();
 
-        if($stmt) { echo '<font color="green">Запись изменена!</font>';}
+        header("Refresh:0; url=news.php");
     }
     catch(Exeption $e)
     {

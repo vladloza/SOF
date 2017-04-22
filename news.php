@@ -2,7 +2,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-if (isset($_GET['des']) && isset($_SESSION['currentUser'])){
+if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
     if($_GET['des']=='del'){
 
         $sqlQuery = 'delete from News where id = '.$_GET["id"];
@@ -11,6 +11,8 @@ if (isset($_GET['des']) && isset($_SESSION['currentUser'])){
             require("dbconfig.php");
             
             $smtp = $conn->query($sqlQuery);
+           
+            header("Refresh:0; url=news.php");
         }
         catch(Exeption $e)
         {
@@ -47,7 +49,7 @@ try{
                         <h2 style="display:inline-block" class="entry-title">
                             <a href="#">'.stripslashes($row[1]).'</a>
                         </h2>
-                        <div style="display:inline-block; margin: 20px"><a href="../editnews.php?des=edit&id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
+                        <div style="display:inline-block; margin: 20px"><a href="../editnews.php?id='.$row[0].'">Edit</a> | <a href="?des=del&id='.$row[0].'">Del</a></div>
                     </header>
                     <div class="entry-summary">
                         <p>'.html_entity_decode($row[2]).' 
