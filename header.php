@@ -5,7 +5,6 @@ $output = '<!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
