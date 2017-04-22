@@ -51,23 +51,29 @@ if(isset($_POST['add'])){
     $title = addslashes(htmlspecialchars($_POST['title'])); 
     $text = addslashes(htmlspecialchars($_POST['text']));
     $date = date("Y-m-d H:i:s");
+    $target_name = '';
+    $image = '';
 
-    $sqlQuery = "INSERT INTO News (Title, Text, CreateDate, ImagePath) VALUES (:title, :text, :date, :imgPath)";
+    if (is_uploaded_file($_FILES['fileUpload']['tmp_name']))
+    {
+        $target_name = basename($_FILES['fileUpload']['name']);
+        $image = base64_encode(file_get_contents(addslashes($_FILES['fileUpload']['tmp_name'])));
+    }
+    
+    if (isset($title)&&isset($text)&&$title!=''&&$text!='')
+    {
+        $sqlQuery = "INSERT INTO News (Title, Text, CreateDate, ImageName, ImageBody) VALUES (:title, :text, :date, :imgName, :imgBody)";
 
-    try{
-        $target_dir = 'uploads/';
-        $target_file = $target_dir . basename($_FILES['fileUpload']['name']);
-        
-        if (move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file))
-        {
-            require("dbconfig.php");
-            
+        try{
+            include("dbconfig.php");
+                
             $stmt = $conn->prepare($sqlQuery);
 
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':text', $text);
             $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':imgPath', $target_file);
+            $stmt->bindParam(':imgName', $target_name);
+            $stmt->bindParam(':imgBody', $image);
 
             if ($stmt->execute())
             {
@@ -78,12 +84,12 @@ if(isset($_POST['add'])){
                 echo "Error!";
             }
         }
-        else { echo "Error!"; }
+        catch(Exeption $e)
+        {
+            echo "DB Falied! ".$e;
+        }
     }
-    catch(Exeption $e)
-    {
-        echo "DB Falied! ".$e;
-    }
+    else echo "Заповніть поля!";
 }
 
 if(isset($_POST['edit'])){        
@@ -91,33 +97,51 @@ if(isset($_POST['edit'])){
     $text = addslashes(htmlspecialchars($_POST['text']));
     $id = $_POST['id'];
     $date = date("Y-m-d H:i:s");
+    $target_name = '';
+    $image = '';
 
-    $sqlQuery = "UPDATE News SET Title = :title, Text = :text, CreateDate= :date WHERE id = :id";
-
-    try{
-        
-        require("dbconfig.php");
-        
-        $stmt = $conn->prepare($sqlQuery);
-
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':text', $text);
-        $stmt->bindParam(':date', $date);
-        $stmt->bindParam(':id', $id);
-
-        if ($stmt->execute())
-        {
-            header("Refresh:0; url=news.php");
-        }
-        else
-        {
-            echo "Error!";
-        }
-    }
-    catch(Exeption $e)
+    if (isset($title)&&isset($text)&&$title!=''&&$text!='')
     {
-        echo "DB Falied! ".$e;
+        $sqlQuery = "UPDATE News SET Title = :title, Text = :text, CreateDate= :date WHERE id = :id";
+
+        if (is_uploaded_file($_FILES['fileUpload']['tmp_name']))
+        {
+            $target_name = basename($_FILES['fileUpload']['name']);
+            $image = base64_encode(file_get_contents(addslashes($_FILES['fileUpload']['tmp_name'])));
+            $sqlQuery = "UPDATE News SET Title = :title, Text = :text, CreateDate= :date, ImageName = :target_name, ImageBody = :image WHERE id = :id";
+        }
+
+        try{
+            
+            include("dbconfig.php");
+            
+            $stmt = $conn->prepare($sqlQuery);
+
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':text', $text);
+            $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':id', $id);
+            if (is_uploaded_file($_FILES['fileUpload']['tmp_name']))
+            {
+                $stmt->bindParam(':target_name', $target_name);
+                $stmt->bindParam(':image', $image);
+            }
+
+            if ($stmt->execute())
+            {
+                header("Refresh:0; url=news.php");
+            }
+            else
+            {
+                echo "Error!";
+            }
+        }
+        catch(Exeption $e)
+        {
+            echo "DB Falied! ".$e;
+        }
     }
+    else echo "Заповніть поля!";
 }
 
 ?>
