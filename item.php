@@ -8,11 +8,26 @@ if (isset($_GET['id'])){
     try{             
         include("dbconfig.php");
         $id = $_GET["id"];
-        $sqlQuery = "select * from News where id = '$id'";
+        $sqlQuery = "(select * from News where id = :id) union (select * from News where id<:id order by id desc limit 1) union (select * from News where id>:id order by id asc limit 1)";
 
-        $result = $conn->query($sqlQuery);
-            
-        $row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT);
+        $stmt = $conn->prepare($sqlQuery);
+
+        $stmt->bindParam(':id', $id);
+
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll();
+
+        $row = $rows[0];
+        $rowLeft = $rows[1];
+        $rowRight = null;
+        if (count($rows)==3) {
+            $rowRight = $rows[2];
+        }
+        elseif ($rowLeft[0]>$row[0]) {
+            $rowRight = $rowLeft; 
+            $rowLeft = null;
+        }
 
         $output .= '<div class="container margin-top">  
                     <article class="clearfix">
@@ -22,20 +37,21 @@ if (isset($_GET['id'])){
                         <header class="entry-header" style="display: inline-block;">
                                 <h2 class="entry-title">'.stripslashes($row[1]).'</h2>
                             </header>
-                        <div class="body-container clearfix">          
+                        <div class="body-container clearfix">
                             <div class="entry-summary">
                                <p>'.html_entity_decode($row[2]).'<p>
                             </div>
                         </div>        
                     </article> 
-                    <div class="margin-top">
-                        <div class="nav-previous">
-                            <a href="#">< Как жить дальше?</a>
-                        </div>
-                        <div class="nav-next">
-                             <a href="#">Невозможно жить дальше...></a>
-                        </div>
-                    </div>   
+                    <div class="margin-top">';
+
+        if ($rowLeft) $output .=     '<div class="nav-previous">
+                            <a href="item.php?id='.$rowLeft[0].'"><-- '.$rowLeft[1].'</a>
+                        </div>';
+        if ($rowRight) $output .=     '<div class="nav-next">
+                             <a href="item.php?id='.$rowRight[0].'">'.$rowRight[1].' --></a>
+                        </div>';
+        $output .= '</div>   
                 </div>
                 <hr>';
         echo $output;
