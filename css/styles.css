@@ -228,11 +228,6 @@
         font-weight: lighter;
     }
     
-    .editTable span {
-        display: inline-block;
-        font-size: 18px;
-    }
-    
     @media (min-width: 768px) {
         .icons>div {
             width: 25% !important;
