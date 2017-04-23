@@ -31,30 +31,31 @@
     }
     
     img {
-        width: 100%;
+        max-width: 100% !important;
+        height: auto !important;
     }
     
     section {
         margin: 20px 0px;
     }
     
-    tr:last-child {
+    .table-responsive tr:last-child {
         border-right: #d6d6d6 1px solid;
     }
     
-    td {
+    .table-responsive td {
         vertical-align: baseline;
         padding: 0px 5px;
         border-left: #d6d6d6 1px solid;
         width: 25%;
     }
     
-    th {
+    .table-responsive th {
         background: #edf300;
         padding: 5px;
     }
     
-    tbody {
+    .table-responsive tbody {
         border-bottom: #d6d6d6 1px solid;
     }
     
@@ -283,7 +284,7 @@
         font-size: 28px;
         line-height: 1.2;
         font-weight: bold;
-        margin-bottom: 0px;
+        margin: 0px;
     }
     
     .entry-header .entry-title a {
@@ -313,8 +314,8 @@
     
     .site-content article {
         border-bottom: 2px double #F3F3F3;
-        margin-bottom: 28px;
-        padding: 24px 0px;
+        margin-bottom: 20px;
+        padding: 20px 0px;
         word-wrap: break-word;
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
@@ -357,8 +358,8 @@
     
     .image-container {
         float: left;
-        padding-right: 15px;
-        padding-bottom: 15px
+        padding-right: 2%;
+        padding-bottom: 2%
     }
     
     .wrapper2 {
@@ -460,6 +461,9 @@
     }
     
     @media screen and (max-width: 768px) {
+        table {
+            width: 100% !important;
+        }
         .site-header {
             text-align: center;
             height: auto;

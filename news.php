@@ -61,11 +61,10 @@ try{
                                 
                             </header>
                             <div class="entry-summary">
-                                <p>'.html_entity_decode($row[2]).' 
+                                <div class="entry-summary-body" style="display:none">'.html_entity_decode($row[2]).'...</div> 
                                     <span class="read-more">
                                         <a href="item.php?id='.$row[0].'">Read more</a>
-                                    </span>
-                                </p>   
+                                    </span>  
                             </div>
                         </div>        
                     </article>';
@@ -81,7 +80,8 @@ $output .= '</div>
     </div>
 </div>
 </div>
-<script src="js/ajax.js"></script>';
+<script src="js/ajax.js"></script>
+<script src="js/substring.js"></script>';
 
 echo $output;
 
