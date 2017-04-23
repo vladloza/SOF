@@ -10,9 +10,25 @@ $result = $conn->query($sqlQuery);
 $articles = array();
 while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
 {
-    $articles[] = $row;
+    $dom = new DOMDocument();
+    $html = mb_convert_encoding(html_entity_decode($row[2]), 'HTML-ENTITIES', 'UTF-8');
+    $dom->loadHTML($html);
+    $res = $dom->getElementsByTagName('p');
+    $text = null;
+    foreach($res as $elem)
+    {
+        $text .= $elem->nodeValue;
+    }
+    $text = substr($text, 0, 400);
+    $article = array();
+    $article[0] = $row[0];
+    $article[1] = $row[1];
+    $article[2] = $text;
+    $article[3] = $row[3];
+    $article[4] = $row[4];
+    $article[5] = $row[5];
+    $articles[] = $article;
 }
-
 echo json_encode($articles);
 
 ?>

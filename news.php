@@ -48,6 +48,16 @@ try{
         
     while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
     {
+        $dom = new DOMDocument();
+        $html = mb_convert_encoding(html_entity_decode($row[2]), 'HTML-ENTITIES', 'UTF-8');
+        $dom->loadHTML($html);
+        $res = $dom->getElementsByTagName('p');
+        $text = null;
+        foreach($res as $elem)
+        {
+            $text .= $elem->nodeValue;
+        }
+        $text = substr($text, 0, 400);
         $output .= '<article class="clearfix">
                         <div class="image-container">
                             <img src="data:image;base64, '.$row[5].'"/>
@@ -58,10 +68,9 @@ try{
                                 <h2 class="entry-title">
                                     <a href="item.php?id='.$row[0].'">'.stripslashes($row[1]).'</a>
                                 </h2>
-                                
                             </header>
                             <div class="entry-summary">
-                                <div class="entry-summary-body" style="display:none">'.html_entity_decode($row[2]).'...</div> 
+                                <div class="entry-summary-body">'.$text.'...</div> 
                                     <span class="read-more">
                                         <a href="item.php?id='.$row[0].'">Read more</a>
                                     </span>  
@@ -80,8 +89,7 @@ $output .= '</div>
     </div>
 </div>
 </div>
-<script src="js/ajax.js"></script>
-<script src="js/substring.js"></script>';
+<script src="js/ajax.js"></script>';
 
 echo $output;
 
