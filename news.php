@@ -70,10 +70,10 @@ try{
                                 </h2>
                             </header>
                             <div class="entry-summary">
-                                <div class="entry-summary-body">'.$text.'...</div> 
-                                    <span class="read-more">
+                                <div class="entry-summary-body">'.$text.'... <span class="read-more">
                                         <a href="item.php?id='.$row[0].'">Read more</a>
-                                    </span>  
+                                    </span>  </div> 
+                                   
                             </div>
                         </div>        
                     </article>';
