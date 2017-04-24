@@ -18,6 +18,7 @@
         font-style: normal;
     }
     
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
     hr {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -236,7 +237,6 @@
     }
     /*-----admin----*/
     
-    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
     .login-page {
         width: 360px;
         padding: 8% 0 0;
@@ -297,6 +297,57 @@
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+    /*---------------staff---------------*/
+    
+    .staff-block {
+        margin-top: 10px;
+    }
+    
+    .block-inside {
+        padding: 15px;
+        border: 1px solid #d4d4d4;
+        transition: .3s ease 0s;
+    }
+    
+    .block-inside:hover {
+        box-shadow: 0.2px 0.2px 15px 2px #cad4d8;
+    }
+    
+    .image-caption-wrapper {
+        padding-top: 15px;
+    }
+    
+    .staff-header-container {
+        background: rgb(247, 249, 75);
+    }
+    
+    .staff-header h2 {
+        margin: 12px 0px;
+    }
+    
+    .staff-small-header h4 {
+        font-family: Helvetica, "Open Sans", sans-serif;
+        font-weight: 500;
+        line-height: 1.4;
+        font-size: 14px;
+    }
+    
+    .team-header-inside h2 {
+        text-align: center;
+    }
+    
+    .team-header-inside h2:after {
+        border-bottom: thin solid #cad4d8;
+        width: 20rem;
+        content: "";
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+    
+    .image-caption {
+        color: #1e1e1e;
+        font-weight: 600;
     }
     /*----------------header style---------------*/
     
@@ -662,6 +713,15 @@
         }
         .image-container {
             width: 17%;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .staff-block {
+            position: relative;
+            min-height: 1px;
+            width: 20%;
+            float: left;
         }
     }
     

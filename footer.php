@@ -3,8 +3,7 @@
 $output = '<footer class="center-text">
         <p>© Факультет інформаційних технологій КНУ імені Тараса Шевченка, 2017</p>
       </footer>
-<div class="clear"> 
-</div>
+<div class="clear"></div>
 <script>
 
 fixBrokenImages = function( url ){
