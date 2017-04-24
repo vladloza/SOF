@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="tab-pane" id="specialty2">
-              <div style="margin-top:20px">
+               <div class="table-responsive" style="max-width: 100%; margin-top:20px">
                 <table>
                   <tr>
                     <th>Студенти  отримають знання з</th>
@@ -128,7 +128,7 @@
               </div>
             </div>
             <div class="tab-pane" id="specialty3">
-              <div style="margin-top:20px">
+               <div class="table-responsive" style="max-width: 100%; margin-top:20px">
                 <table>
                   <tr>
                     <th>Студенти  отримають знання з</th>
@@ -187,7 +187,7 @@
             </div>
           </div>
           <div class="tab-pane" id="specialty4">
-            <div style="margin-top:20px">
+             <div class="table-responsive" style="max-width: 100%; margin-top:20px">
               <table>
                 <tr>
                   <th>Студенти  отримають знання з</th>
@@ -240,7 +240,7 @@
           </div>
         </div>
         <div class="tab-pane" id="specialty5">
-          <div style="margin-top:20px">
+           <div class="table-responsive" style="max-width: 100%; margin-top:20px">
             <table>
               <tr>
                 <th>Студенти  отримають знання з</th>
