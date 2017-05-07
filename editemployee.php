@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 include("header.php");
 require("addscript.php");
 
-$sqlQuery = 'select * from News where id = '.$_GET["id"];
+$sqlQuery = 'select * from Employees where id = '.$_GET["id"];
 
 try{  
     include("dbconfig.php");
@@ -14,7 +14,7 @@ try{
 
     $row = $smtp->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT);
 
-    echo add_edit(false, $row[0], $row[1], $row[2]);
+    echo add_edit(true, $row[0], $row[1], $row[2]);
 }
 catch(Exeption $e)
 {

@@ -1,5 +1,29 @@
 <?php 
 
+if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
+    if($_GET['des']=='del'){
+
+        $sqlQuery = 'delete from Employees where id = '.$_GET["id"];
+        
+        try{  
+            include("dbconfig.php");
+            
+            if($smtp = $conn->query($sqlQuery))
+            {
+                header("Refresh:0; url=staff.php");
+            }
+            else
+            {
+                echo "Error";
+            }
+        }
+        catch(Exeption $e)
+        {
+            echo "DB Falied! ".$e;
+        }
+    }
+}
+
 include("header.php");
 
 $output = '';
@@ -37,8 +61,8 @@ try{
         $output .= '
         <div class="col-xs-6 col-sm-3 staff-block">
                 <div class="staff-block-admin">
-                    <a href="#" class="staff-block-admin-a edit">Редагувати</a>
-                    <a href="#" class="staff-block-admin-a delete">Видалити</a>
+                    <a href="editemployee.php?id='.$row[0].'" class="staff-block-admin-a edit">Редагувати</a>
+                    <a href="?des=del&id='.$row[0].'" class="staff-block-admin-a delete">Видалити</a>
                 </div>
                 <div class="block-inside">
                     <div class="block-content">
@@ -66,7 +90,7 @@ catch(Exeption $e)
         <div class="col-xs-6 col-sm-3 staff-block">
                 <div class="block-inside block-out">
                     <div class="block-content">
-                        <a href="#">
+                        <a href="addemployee.php">
                             <div class="image-block-wrapper">
                                 <img src="img/Add_Person.png" class="image-block"/>
                             </div>
