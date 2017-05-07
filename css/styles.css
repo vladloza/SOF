@@ -214,6 +214,7 @@
         color: red;
     }
     
+    .block-out,
     .jobs {
         text-align: center;
         margin-top: 40px;
@@ -312,6 +313,36 @@
     
     .block-inside:hover {
         box-shadow: 0.2px 0.2px 15px 2px #cad4d8;
+    }
+    
+    .staff-block-admin-a {
+        display: inline-block;
+        width: 49%;
+        text-align: center;
+        padding: 10px 0px;
+        color: white;
+    }
+    
+    .staff-block-admin-a:hover,
+    .staff-block-admin-a:active,
+    .staff-block-admin-a:focus {
+        color: white;
+    }
+    
+    .staff-block-admin-a.edit {
+        background: #00a1e0;
+    }
+    
+    .staff-block-admin-a.delete {
+        background: #ff4040;
+    }
+    
+    .staff-block-admin-a.edit:hover {
+        background: #048cc1;
+    }
+    
+    .staff-block-admin-a.delete:hover {
+        background: #eb3434;
     }
     
     .image-caption-wrapper {
@@ -625,6 +656,9 @@
     }
     
     @media screen and (max-width: 768px) {
+        .staff-block-admin-a {
+            width: 100%;
+        }
         table {
             width: 100% !important;
         }
@@ -649,6 +683,9 @@
     }
     
     @media (min-width: 768px) {
+        .staff-block-admin-a {
+            width: 100%;
+        }
         .icons>div {
             width: 25% !important;
             float: left;
@@ -770,6 +807,9 @@
     }
     
     @media (min-width: 992px) {
+        .staff-block-admin-a {
+            width: 49%;
+        }
         .employee-wrapper {
             padding: 17px;
         }

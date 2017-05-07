@@ -36,6 +36,10 @@ try{
     {
         $output .= '
         <div class="col-xs-6 col-sm-3 staff-block">
+                <div class="staff-block-admin">
+                    <a href="#" class="staff-block-admin-a edit">Редагувати</a>
+                    <a href="#" class="staff-block-admin-a delete">Видалити</a>
+                </div>
                 <div class="block-inside">
                     <div class="block-content">
                         <a href="employee.php?id='.$row[0].'">
@@ -58,7 +62,24 @@ catch(Exeption $e)
 {
     echo "DB Falied!";
 }
-
+        $output .= '
+        <div class="col-xs-6 col-sm-3 staff-block">
+                <div class="block-inside block-out">
+                    <div class="block-content">
+                        <a href="#">
+                            <div class="image-block-wrapper">
+                                <img src="img/Add_Person.png" class="image-block"/>
+                            </div>
+                            <div class="image-caption-wrapper">
+                                <div class="image-caption">
+                                    <p>Додати вчителя</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        ';
 $output .= '    </div>
 </div>
 <hr>';
