@@ -1,5 +1,8 @@
 <?php include("header.php"); ?>
 
+<?php $output = '';
+
+$output .= '
 <div class="container">
     <div class="clearfix staff-header-container margin-top">
         <div class="col-md-4">
@@ -19,103 +22,46 @@
         </div>
     </div>
     <div class="clearfix">
-        <div class="col-xs-6 col-sm-3 staff-block">
+';
+try{ 
+            
+    include("dbconfig.php");
+    $sqlQuery = 'select * from teachers order by id';
+
+    $result = $conn->query($sqlQuery);
+   
+    while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
+    {
+       $output .= '
+       <div class="col-xs-6 col-sm-3 staff-block">
             <div class="block-inside">
                 <div class="block-content">
                     <a href="#">
                         <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
+                            <img src="data:image;base64, '.$row[3].'" class="image-block">
                         </div>
                         <div class="image-caption-wrapper">
                             <div class="image-caption">
-                                <p>Surname Name Fathername</p>
+                                <p>'.$row[1].'</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-         <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>Surname Name Fathername</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-         <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>Surname Name Fathername</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-         <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>Surname Name Fathername</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>Surname Name Fathername</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="#" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>Surname Name Fathername</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+       ';             
+    }
+}
+catch(Exeption $e)
+{
+    echo "DB Falied!";
+}
+
+$output .= '    </div>
 </div>
-<hr>
-<?php include("footer.php"); ?>
+<hr>';
+echo $output;
+
+include("footer.php");
+ ?>
+

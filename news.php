@@ -72,8 +72,8 @@ try{
                             <div class="entry-summary">
                                 <div class="entry-summary-body">'.$text.'... <span class="read-more">
                                         <a href="item.php?id='.$row[0].'">Read more</a>
-                                    </span>  </div> 
-                                   
+                                    </span>  
+                                </div>          
                             </div>
                         </div>        
                     </article>';

@@ -29,7 +29,7 @@ $output = '<!DOCTYPE html>
             <li class="active"><a href="#">Головна</a></li>
             <li><a href="#about">Про кафедру</a></li>
             <li><a href="abiturient.php">Абітурієнту</a></li>
-            <li><a href="#contact">Співробітники</a></li>
+            <li><a href="staff.php">Співробітники</a></li>
             <li><a href="#contact">Студентам</a></li>
             <li><a href="news.php">Новини</a></li>
             <li><a href="#contact">Послуги</a></li>
