@@ -33,7 +33,7 @@ $output = '<!DOCTYPE html>
             <li><a href="#contact">Студентам</a></li>
             <li><a href="news.php">Новини</a></li>
             <li><a href="#contact">Послуги</a></li>
-            <li><a href="#contact">Контакти</a></li>
+            <li><a href="contacts.php">Контакти</a></li>
           </ul>
         </div><!--/.nav-collapse -->
         <div class="clear"></div>

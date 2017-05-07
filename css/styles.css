@@ -656,6 +656,9 @@
     }
     
     @media screen and (max-width: 768px) {
+        .map iframe {
+            width: 100%;
+        }
         .staff-block-admin-a {
             width: 100%;
         }
@@ -683,6 +686,16 @@
     }
     
     @media (min-width: 768px) {
+        .inner {
+            padding-left: 15px;
+        }
+        .find-us {
+            float: left;
+            width: 50%;
+        }
+        .map iframe {
+            width: 50%;
+        }
         .staff-block-admin-a {
             width: 100%;
         }
