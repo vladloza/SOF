@@ -48,8 +48,8 @@ function add_edit($id=0, $title='', $text=''){
 }
 
 if(isset($_POST['add'])){        
-    $title = addslashes(htmlspecialchars($_POST['title'])); 
-    $text = addslashes(htmlspecialchars($_POST['text']));
+    $title = $_POST['title']; 
+    $text = $_POST['text'];
     $date = date("Y-m-d H:i:s");
     $target_name = '';
     $image = '';
@@ -93,8 +93,8 @@ if(isset($_POST['add'])){
 }
 
 if(isset($_POST['edit'])){        
-    $title = addslashes(htmlspecialchars($_POST['title'])); 
-    $text = addslashes(htmlspecialchars($_POST['text']));
+    $title = $_POST['title']; 
+    $text = $_POST['text'];
     $id = $_POST['id'];
     $date = date("Y-m-d H:i:s");
     $target_name = '';

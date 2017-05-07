@@ -1,6 +1,8 @@
-<?php include("header.php"); ?>
+<?php 
 
-<?php $output = '';
+include("header.php");
+
+$output = '';
 
 $output .= '
 <div class="container">
@@ -32,24 +34,24 @@ try{
    
     while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
     {
-       $output .= '
-       <div class="col-xs-6 col-sm-3 staff-block">
-            <div class="block-inside">
-                <div class="block-content">
-                    <a href="#">
-                        <div class="image-block-wrapper">
-                            <img src="data:image;base64, '.$row[3].'" class="image-block">
-                        </div>
-                        <div class="image-caption-wrapper">
-                            <div class="image-caption">
-                                <p>'.$row[1].'</p>
+        $output .= '
+        <div class="col-xs-6 col-sm-3 staff-block">
+                <div class="block-inside">
+                    <div class="block-content">
+                        <a href="#">
+                            <div class="image-block-wrapper">
+                                <img src="data:image;base64, '.$row[3].'" class="image-block"/>
                             </div>
-                        </div>
-                    </a>
+                            <div class="image-caption-wrapper">
+                                <div class="image-caption">
+                                    <p>'.$row[1].'</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-       ';             
+        ';             
     }
 }
 catch(Exeption $e)
@@ -63,5 +65,6 @@ $output .= '    </div>
 echo $output;
 
 include("footer.php");
- ?>
+
+?>
 
