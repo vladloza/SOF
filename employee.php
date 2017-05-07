@@ -13,10 +13,29 @@ if (isset($_GET['id'])){
             
         $row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT);
 
-        $output .= '<strong>id: </strong>'.$row[0];
-        $output .= '<br/><strong>FullName: </strong>'.$row[1];
-        $output .= '<br/><strong>Text: </strong>'.$row[2];
-        $output .= '<br/><strong>ImagePath: </strong>'.$row[3];
+        $output .= '
+        <div class="margin-top">
+            <div class="employee-wrapper">
+                <div class="container">
+                    <div class="single-employee-sidebar">
+                        <div class="employee-image">
+                            <img src="data:image;base64, '.$row[3].'"/>
+                        </div>
+                        <div class="employee-content">
+                            <h2 class="center-text">'.$row[1].'</h2>
+                        </div>
+                    </div>
+                    <div class="single-employee-content">
+                        <div class="column-container clearfix">
+                            <div class="employee-text">
+                                <p>'.$row[2].'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        ';
     
         echo $output;
     }

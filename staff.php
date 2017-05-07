@@ -28,7 +28,7 @@ $output .= '
 try{ 
             
     include("dbconfig.php");
-    $sqlQuery = 'select * from teachers order by id';
+    $sqlQuery = 'select * from employees order by id';
 
     $result = $conn->query($sqlQuery);
    
@@ -38,7 +38,7 @@ try{
         <div class="col-xs-6 col-sm-3 staff-block">
                 <div class="block-inside">
                     <div class="block-content">
-                        <a href="#">
+                        <a href="employee.php?id='.$row[0].'">
                             <div class="image-block-wrapper">
                                 <img src="data:image;base64, '.$row[3].'" class="image-block"/>
                             </div>
