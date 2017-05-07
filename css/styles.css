@@ -574,6 +574,55 @@
         width: 80%;
         display: inline-block;
     }
+    /*------------------employee-------------*/
+    
+    .e-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .employee-wrapper {
+        padding: 25px 0 !important;
+    }
+    
+    .single-employee-sidebar {
+        width: 100%;
+        margin-bottom: 25px;
+        float: left;
+    }
+    
+    .single-employee-content {
+        padding-left: 0px;
+    }
+    
+    .employee-image {
+        text-align: center;
+    }
+    
+    .employee-image img {
+        border-radius: 50%;
+        max-width: 100%;
+        height: auto;
+        border: 0;
+        vertical-align: middle;
+    }
+    
+    .employee-text h2 {
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        font-family: "Roboto";
+        font-size: 16px;
+        color: #393836;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+    
+    .employee-text p {
+        color: #656262;
+        line-height: 1.66em;
+    }
     
     @media screen and (max-width: 768px) {
         table {
@@ -701,9 +750,29 @@
         .image-container {
             width: 30%;
         }
+        .column-container {
+            float: left;
+            width: 100%;
+        }
+        .single-employee-sidebar {
+            width: 275px;
+            margin-bottom: 0px;
+        }
+        .employee-image {
+            text-align: initial;
+        }
+        .single-employee-content {
+            padding-left: 375px;
+        }
+        .employee-text h2 {
+            text-align: left;
+        }
     }
     
     @media (min-width: 992px) {
+        .employee-wrapper {
+            padding: 17px;
+        }
         .icons img {
             width: 50%;
         }
