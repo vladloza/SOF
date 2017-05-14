@@ -349,12 +349,18 @@
         padding-top: 15px;
     }
     
+    .services-header-container,
     .staff-header-container {
         background: rgb(247, 249, 75);
     }
     
+    .services-header h2,
     .staff-header h2 {
         margin: 12px 0px;
+    }
+    
+    .services-header h2 {
+        text-align: center;
     }
     
     .staff-small-header h4 {

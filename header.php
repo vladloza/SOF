@@ -32,7 +32,7 @@ $output = '<!DOCTYPE html>
             <li><a href="staff.php">Співробітники</a></li>
             <li><a href="#contact">Студентам</a></li>
             <li><a href="news.php">Новини</a></li>
-            <li><a href="#contact">Послуги</a></li>
+            <li><a href="services.php">Послуги</a></li>
             <li><a href="contacts.php">Контакти</a></li>
           </ul>
         </div><!--/.nav-collapse -->
