@@ -168,6 +168,11 @@
         width: 25%;
     }
     
+    .bg-text p,
+    .bg-text2 p {
+        padding: 0px 7px;
+    }
+    
     .bg-text p:nth-child(2n-1) {
         background: antiquewhite;
     }
@@ -356,7 +361,7 @@
     
     .services-header h2,
     .staff-header h2 {
-        margin: 12px 0px;
+        margin: 14px 0px;
     }
     
     .services-header h2 {
@@ -366,7 +371,7 @@
     .staff-small-header h4 {
         font-family: Helvetica, "Open Sans", sans-serif;
         font-weight: 500;
-        line-height: 1.4;
+        line-height: 1.5;
         font-size: 14px;
     }
     

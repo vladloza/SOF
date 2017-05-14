@@ -27,10 +27,9 @@ $output = '<!DOCTYPE html>
         <div class="collapse navbar-collapse themonic-nav">   
           <ul class="nav-menu">
             <li class="active"><a href="#">Головна</a></li>
-            <li><a href="#about">Про кафедру</a></li>
+            <li><a href="about.php">Про кафедру</a></li>
             <li><a href="abiturient.php">Абітурієнту</a></li>
             <li><a href="staff.php">Співробітники</a></li>
-            <li><a href="#contact">Студентам</a></li>
             <li><a href="news.php">Новини</a></li>
             <li><a href="services.php">Послуги</a></li>
             <li><a href="contacts.php">Контакти</a></li>
