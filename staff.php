@@ -1,9 +1,11 @@
 <?php 
-session_start();
+
+include("header.php");
+
 if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
     if($_GET['des']=='del'){
 
-        $sqlQuery = 'delete from Employees where id = '.$_GET["id"];
+        $sqlQuery = 'delete from employees where id = '.$_GET["id"];
         
         try{  
             include("dbconfig.php");
@@ -23,8 +25,6 @@ if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
         }
     }
 }
-
-include("header.php");
 
 $output = '';
 

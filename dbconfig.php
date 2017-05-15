@@ -2,9 +2,9 @@
 
 $servername = "localhost";
 
-$username = "root";
+$username = "wwwpst";
 
-$password = "";
+$password = "rGzjzUZC7px9Ptyw";
 
 $dbname = "wwwpst";
 

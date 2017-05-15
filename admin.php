@@ -3,6 +3,29 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 session_start();
+
+if(isset($_POST['login'])) {
+    $log = $_POST['log'];
+    $pass = $_POST['pass'];
+
+    include("dbconfig.php");
+
+    $sqlQuery = "SELECT * from admins where UserName = :log and Password = :pass";
+
+    $stmt = $conn->prepare($sqlQuery);
+
+    $stmt->bindParam(':log', $log);
+    $stmt->bindParam(':pass', $pass);
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll();
+    
+    if($stmt->rowCount()) {
+        $_SESSION['isLogged'] = true;
+        header("Refresh:0; url=news.php");
+    }
+}
+
 $output = '';
 
 $output .= '
@@ -34,27 +57,5 @@ $output .= '
 </html>';
 
 echo $output;
-
-if(isset($_POST['login'])) {
-    $log = $_POST['log'];
-    $pass = $_POST['pass'];
-
-    include("dbconfig.php");
-
-    $sqlQuery = "SELECT * from admins where UserName = :log and Password = :pass";
-
-    $stmt = $conn->prepare($sqlQuery);
-
-    $stmt->bindParam(':log', $log);
-    $stmt->bindParam(':pass', $pass);
-    $stmt->execute();
-
-    $rows = $stmt->fetchAll();
-    
-    if($stmt->rowCount()) {
-        $_SESSION['isLogged'] = true;
-        header("Refresh:0; url=news.php");
-    }
-}
 
 ?>

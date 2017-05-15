@@ -1,7 +1,9 @@
 <?php 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-session_start();
+
+include("header.php");
+
 if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
     if($_GET['des'] =='del'){
 
@@ -12,7 +14,7 @@ if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
             
             if($smtp = $conn->query($sqlQuery))
             {
-                header("Refresh:0; url=news.php");
+                printf("<script>location.href='news.php'</script>");
             }
             else
             {
@@ -26,7 +28,6 @@ if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
     }
 }
 
-include("header.php");
 $output = '';
 
 $output .= '<div id="main" class="container margin-top">';

@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 if (isset($_GET['id'])){
     include_once 'header.php';
     $output = '';
@@ -7,7 +8,7 @@ if (isset($_GET['id'])){
     try{             
         include("dbconfig.php");
         $id = $_GET["id"];
-        $sqlQuery = "select * from Employees where id = '$id'";
+        $sqlQuery = "select * from employees where id = '$id'";
 
         $result = $conn->query($sqlQuery);
             

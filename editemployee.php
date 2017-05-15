@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 include("header.php");
 require("addscript.php");
 
-$sqlQuery = 'select * from Employees where id = '.$_GET["id"];
+$sqlQuery = 'select * from employees where id = '.$_GET["id"];
 
 try{  
     include("dbconfig.php");

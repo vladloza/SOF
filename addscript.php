@@ -1,5 +1,4 @@
 <?php
-session_start();
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
@@ -76,7 +75,7 @@ if (isset($_POST['add']) && isset($_SESSION['isLogged'])) {
         if (!$isEmp) {
             $sqlQuery .= "INSERT INTO News (Title, Text, CreateDate, ImageName, ImageBody) VALUES (:title, :text, :date, :imgName, :imgBody)";
         } else {
-            $sqlQuery .= "INSERT INTO Employees (FullName, Text, ImageName, ImageBody) VALUES (:title, :text, :imgName, :imgBody)";
+            $sqlQuery .= "INSERT INTO employees (FullName, Text, ImageName, ImageBody) VALUES (:title, :text, :imgName, :imgBody)";
         }
         try {
             include("dbconfig.php");
@@ -93,9 +92,9 @@ if (isset($_POST['add']) && isset($_SESSION['isLogged'])) {
 
             if ($stmt->execute()) {
                 if (!$isEmp) {
-                    header("Refresh:0; url=news.php");
+                    printf("<script>location.href='news.php'</script>");
                 } else {
-                    header("Refresh:0; url=staff.php");
+                    printf("<script>location.href='staff.php'</script>");
                 }
             } else {
                 echo "Error!";
@@ -121,7 +120,7 @@ if (isset($_POST['edit']) && isset($_SESSION['isLogged'])) {
         if (!$isEmp) {
             $sqlQuery = "UPDATE News SET Title = :title, Text = :text, CreateDate= :date WHERE id = :id";
         } else {
-            $sqlQuery = "UPDATE Employees SET FullName = :title, Text = :text WHERE id = :id";
+            $sqlQuery = "UPDATE employees SET FullName = :title, Text = :text WHERE id = :id";
         }
 
         if (is_uploaded_file($_FILES['fileUpload']['tmp_name'])) {
@@ -130,7 +129,7 @@ if (isset($_POST['edit']) && isset($_SESSION['isLogged'])) {
             if (!$isEmp) {
                 $sqlQuery = "UPDATE News SET Title = :title, Text = :text, CreateDate= :date, ImageName = :target_name, ImageBody = :image WHERE id = :id";
             } else {
-                $sqlQuery = "UPDATE Employees SET FullName = :title, Text = :text, ImageName = :target_name, ImageBody = :image WHERE id = :id";
+                $sqlQuery = "UPDATE employees SET FullName = :title, Text = :text, ImageName = :target_name, ImageBody = :image WHERE id = :id";
             }
         }
 
@@ -152,9 +151,9 @@ if (isset($_POST['edit']) && isset($_SESSION['isLogged'])) {
 
             if ($stmt->execute()) {
                 if (!$isEmp) {
-                    header("Refresh:0; url=news.php");
+                    printf("<script>location.href='news.php'</script>");
                 } else {
-                    header("Refresh:0; url=staff.php");
+                    printf("<script>location.href='staff.php'</script>");
                 }
             } else {
                 echo "Error!";
