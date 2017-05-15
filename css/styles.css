@@ -33,7 +33,7 @@
     
     img {
         max-width: 100% !important;
-        height: auto !important;
+        /*height: auto !important;*/
     }
     
     section {
@@ -156,6 +156,10 @@
         float: right;
         width: 40%;
         padding-left: 10px;
+    }
+    
+    .rightimg.in {
+        width: auto;
     }
     
     .leftimg {
@@ -310,14 +314,61 @@
         margin-top: 10px;
     }
     
+    .grey {
+        margin-top: 0px;
+        text-align: center;
+        background: whitesmoke;
+    }
+    
+    .cons {
+        line-height: 24px;
+        list-style: outside;
+        padding-left: 20px;
+    }
+    
+    .grey-href {
+        display: block;
+        float: right;
+        padding: 10px 0px;
+    }
+    
+    .block-inside-i,
     .block-inside {
         padding: 15px;
         border: 1px solid #d4d4d4;
         transition: .3s ease 0s;
     }
     
+    .block-inside-i {
+        margin-top: 15px;
+    }
+    
+    .block-inside-i .date-wrapper span {
+        color: #9b9999;
+    }
+    
+    .block-inside-i .date-wrapper {
+        margin-bottom: 3px;
+    }
+    
+    .block-inside-i .block-content {
+        height: 215px;
+        overflow: hidden;
+    }
+    
     .block-inside:hover {
         box-shadow: 0.2px 0.2px 15px 2px #cad4d8;
+    }
+    
+    .block-inside-i .image-block-wrapper {
+        display: table;
+        margin: 0 auto;
+        height: 160px;
+    }
+    
+    .block-inside-i .image-block-wrapper img {
+        display: table-cell;
+        max-height: 160px;
     }
     
     .staff-block-admin-a {
@@ -352,6 +403,17 @@
     
     .image-caption-wrapper {
         padding-top: 15px;
+        overflow: hidden;
+    }
+    
+    .image-caption h4 {
+        background: whitesmoke;
+        font-family: 'pf_handbook_prothin', 'Open Sans', serif;
+        text-align: center;
+        font-weight: 600;
+        font-size: 22px;
+        padding: 5px;
+        margin: 0px;
     }
     
     .services-header-container,
@@ -661,12 +723,40 @@
         padding-bottom: 10px;
     }
     
+    .employee-text li,
     .employee-text p {
         color: #656262;
         line-height: 1.66em;
     }
     
+    .employee-text li {
+        list-style: square;
+    }
+    
+    .employee-text table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .employee-text th,
+    .employee-text td {
+        text-align: left;
+        padding: 8px;
+    }
+    
+    .employee-text tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    
+    .employee-text i {
+        cursor: pointer;
+        padding: 3px;
+    }
+    
     @media screen and (max-width: 768px) {
+        .block-inside-i .block-content {
+            height: auto;
+        }
         .map iframe {
             width: 100%;
         }
@@ -697,6 +787,15 @@
     }
     
     @media (min-width: 768px) {
+        .block-inside-i .image-block-wrapper img {
+            display: table-cell;
+            max-height: 100px;
+        }
+        .block-inside-i .image-block-wrapper {
+            display: table;
+            margin: 0 auto;
+            height: 100px;
+        }
         .inner {
             padding-left: 15px;
         }
@@ -831,6 +930,9 @@
     }
     
     @media (min-width: 992px) {
+        .block-inside-i .block-content {
+            height: 260px;
+        }
         .staff-block-admin-a {
             width: 49%;
         }
@@ -846,6 +948,15 @@
         }
         .image-container {
             width: 17%;
+        }
+        .block-inside-i .image-block-wrapper img {
+            display: table-cell;
+            max-height: 160px;
+        }
+        .block-inside-i .image-block-wrapper {
+            display: table;
+            margin: 0 auto;
+            height: 160px;
         }
     }
     

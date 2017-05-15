@@ -5,6 +5,7 @@ $output = '<!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
@@ -26,7 +27,7 @@ $output = '<!DOCTYPE html>
         </div>
         <div class="collapse navbar-collapse themonic-nav">   
           <ul class="nav-menu">
-            <li class="active"><a href="#">Головна</a></li>
+            <li class="active"><a href="index.php">Головна</a></li>
             <li><a href="about.php">Про кафедру</a></li>
             <li><a href="abiturient.php">Абітурієнту</a></li>
             <li><a href="staff.php">Співробітники</a></li>
