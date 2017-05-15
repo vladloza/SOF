@@ -1,9 +1,15 @@
-<?php include('header.php') ?>
+<?php 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+include('header.php'); 
 
+$output = '';
+
+$output .= '
 <section class="margin-top">
      <div class="container">
         <div class="col-md-8" style="padding-left: 0px;">
-          <img src='img/Internet-of-Things-sized.jpg'/>
+          <img src=\'img/Internet-of-Things-sized.jpg\'/>
         </div>
         <div class="col-md-4">
           <h2>Про нас</h2>
@@ -83,84 +89,70 @@
                 <h2 class="grey">Останні новини</h2>
             </div>
             <div class="row">
-                <div>
-                    <div class="col-sm-4">
-                        <div class="block-inside-i">
-                            <div class="block-content">
-                                <a href="employee.php?id='.$row[0].'">
-                                    <div class="date-wrapper">
-                                        <span>21/03/2016</span>
-                                    </div>
-                                    <div class="image-block-wrapper">
-                                        <img src="img/Add_Person.png" class="image-block"/>
-                                    </div>
-                                    <div class="image-caption-wrapper">
-                                        <div class="image-caption">
-                                            <h4>Пост о том, как мы писали олимпиаду db fb sdfb sd bs d b sd fb sd sdbsdfbsdb sdfb sdfbsdbsdfb sfb</h4>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="block-inside-i">
-                            <div class="block-content">
-                                <a href="employee.php?id='.$row[0].'">
-                                     <div class="date-wrapper">
-                                        <span>21/03/2016</span>
-                                    </div>
-                                    <div class="image-block-wrapper">
-                                        <img src="img/Computer_Science.jpg" class="image-block"/>
-                                    </div>
-                                    <div class="image-caption-wrapper">
-                                        <div class="image-caption">
-                                            <h4>Пост о том, как мы писали олимпиаду</h4>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="block-inside-i">
-                            <div class="block-content">
-                                <a href="employee.php?id='.$row[0].'">
-                                     <div class="date-wrapper">
-                                        <span>21/03/2016</span>
-                                    </div>
-                                    <div class="image-block-wrapper">
-                                        <img src="img/Computer_Science.jpg" class="image-block"/>
-                                    </div>
-                                    <div class="image-caption-wrapper">
-                                        <div class="image-caption">
-                                            <h4>Пост о том, как мы писали олимпиаду и скучали по родине</h4>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                <div>';
+try{ 
+
+include("dbconfig.php");
+$sqlQuery = 'select * from News order by id desc limit 3';
+
+$result = $conn->query($sqlQuery);
+
+while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
+{
+$output .= '
+<div class="col-sm-4">
+    <div class="block-inside-i">
+        <div class="block-content">
+            <a href="item.php?id='.$row[0].'">
+                <div class="date-wrapper">
+                    <span>'.$row[3].'</span>
+                </div>
+                <div class="image-block-wrapper">
+                    <img class="image-block" src="data:image;base64, '.$row[5].'"/>
+                </div>
+                <div class="image-caption-wrapper">
+                    <div class="image-caption">
+                        <h4>'.$row[1].'</h4>
                     </div>
                 </div>
-            </div>
-            <div>
-                <a href="news.php" class="grey-href">Переглянути більше</a>
+            </a>
+        </div>
+    </div>
+</div>
+';
+}
+}
+catch(Exeption $e)
+{
+echo "DB Falied!";
+}
+
+ $output .= '
             </div>
         </div>
-    </section>
+        <div>
+            <a href="news.php" class="grey-href">Переглянути більше</a>
+        </div>
+    </div>
+</section>
 
-    <script>
-            $(document).ready(function() {
-              var owl = $('.owl-carousel');
-              owl.owlCarousel({
-                items: 4,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true
-              });
-            })
-          </script>
-    <script src="js/owl.carousel.min.js"></script>
-<?php include('footer.php') ?>
+<script>
+        $(document).ready(function() {
+            var owl = $(\'.owl-carousel\');
+            owl.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true
+            });
+        })
+        </script>
+<script src="js/owl.carousel.min.js"></script>';
+
+echo $output;
+
+include('footer.php');
+
+?>
