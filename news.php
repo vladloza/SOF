@@ -67,7 +67,7 @@ try{
         }
         $text = substr($text, 0, 400);
         $output .= '<article class="clearfix">
-                        <span>'.$row[3].'</span>
+                        <span class="date-wrapper">'.$row[3].'</span>
                         <div class="image-container">
                             <img src="data:image;base64, '.$row[5].'"/>
                         </div>

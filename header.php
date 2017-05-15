@@ -10,6 +10,7 @@ $output = '<!DOCTYPE html>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
   <script type="text/javascript" src="js/ckfinder/ckfinder.js"></script>
+  <script type="text/javascript" src="js/headerActive.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -34,6 +35,7 @@ $output = '<!DOCTYPE html>
             <li><a href="news.php">Новини</a></li>
             <li><a href="services.php">Послуги</a></li>
             <li><a href="contacts.php">Контакти</a></li>
+            <li><a href="#">Вийти</a></li>
           </ul>
         </div><!--/.nav-collapse -->
         <div class="clear"></div>
