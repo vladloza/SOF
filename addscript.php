@@ -1,6 +1,7 @@
 <?php
-    ini_set('display_errors', 'On');
-    error_reporting(E_ALL);
+session_start();
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 function add_edit($isEmp = false, $id = 0, $title = '', $text = '')
 {
@@ -34,9 +35,9 @@ function add_edit($isEmp = false, $id = 0, $title = '', $text = '')
                 <div>
                     <input class="admin-control" style="width:100%" type="submit"';
     if ($id) {
-        $out .= 'name="edit" value="Редагувати">';
+        $out .= 'name="edit" value="Редагувати"/>';
     } else {
-        $out .= 'name="add" value="Додати">';
+        $out .= 'name="add" value="Додати"/>';
     }
 
     $out .= '</div>
@@ -50,11 +51,14 @@ function add_edit($isEmp = false, $id = 0, $title = '', $text = '')
         </script>
     </div>
 </div>';
-
+if ( isset($_SESSION['isLogged']))
+{
     return $out;
 }
+    return "";
+}
 
-if (isset($_POST['add'])) {
+if (isset($_POST['add']) && isset($_SESSION['isLogged'])) {
     $title = $_POST['title'];
     $text = $_POST['text'];
     $date = date("Y-m-d H:i:s");
@@ -104,7 +108,7 @@ if (isset($_POST['add'])) {
     }
 }
 
-if (isset($_POST['edit'])) {
+if (isset($_POST['edit']) && isset($_SESSION['isLogged'])) {
     $title = $_POST['title'];
     $text = $_POST['text'];
     $id = $_POST['id'];

@@ -1,6 +1,6 @@
 <?php 
-
-if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
+session_start();
+if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
     if($_GET['des']=='del'){
 
         $sqlQuery = 'delete from Employees where id = '.$_GET["id"];
@@ -58,13 +58,17 @@ try{
    
     while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
     {
-        $output .= '
-        <div class="col-xs-6 col-sm-3 staff-block">
-                <div class="staff-block-admin">
-                    <a href="editemployee.php?id='.$row[0].'" class="staff-block-admin-a edit">Редагувати</a>
-                    <a href="?des=del&id='.$row[0].'" class="staff-block-admin-a delete">Видалити</a>
-                </div>
-                <div class="block-inside">
+        $output .= '<div class="col-xs-6 col-sm-3 staff-block">';
+        
+        if (isset($_SESSION['isLogged']))
+        {
+            $output .= '<div class="staff-block-admin">
+                            <a href="editemployee.php?id='.$row[0].'" class="staff-block-admin-a edit">Редагувати</a>
+                            <a href="?des=del&id='.$row[0].'" class="staff-block-admin-a delete">Видалити</a>
+                        </div>';
+        }
+                
+                $output .= '<div class="block-inside">
                     <div class="block-content">
                         <a href="employee.php?id='.$row[0].'">
                             <div class="image-block-wrapper">
@@ -86,24 +90,27 @@ catch(Exeption $e)
 {
     echo "DB Falied!";
 }
-        $output .= '
-        <div class="col-xs-6 col-sm-3 staff-block">
-                <div class="block-inside block-out">
-                    <div class="block-content">
-                        <a href="addemployee.php">
-                            <div class="image-block-wrapper">
-                                <img src="img/Add_Person.png" class="image-block"/>
+if (isset($_SESSION['isLogged']))
+{
+    $output .= '
+    <div class="col-xs-6 col-sm-3 staff-block">
+            <div class="block-inside block-out">
+                <div class="block-content">
+                    <a href="addemployee.php">
+                        <div class="image-block-wrapper">
+                            <img src="img/Add_Person.png" class="image-block"/>
+                        </div>
+                        <div class="image-caption-wrapper">
+                            <div class="image-caption">
+                                <p>Додати вчителя</p>
                             </div>
-                            <div class="image-caption-wrapper">
-                                <div class="image-caption">
-                                    <p>Додати вчителя</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        ';
+        </div>
+    ';
+}
 $output .= '    </div>
 </div>
 <hr>';

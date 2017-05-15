@@ -1,9 +1,9 @@
 <?php 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-
-if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
-    if($_GET['des']=='del'){
+session_start();
+if (isset($_GET['des']) && isset($_SESSION['isLogged'])){
+    if($_GET['des'] =='del'){
 
         $sqlQuery = 'delete from News where id = '.$_GET["id"];
         
@@ -29,12 +29,19 @@ if (isset($_GET['des']) /*&& isset($_SESSION['currentUser'])*/){
 include("header.php");
 $output = '';
 
-$output .= '<div id="main" class="container margin-top">
-<div id="addNews">
-    <div>
-        <a href="addnews.php" class="admin-control">Додати новину</a>
-    </div>
-</div>
+$output .= '<div id="main" class="container margin-top">';
+
+if (isset($_SESSION['isLogged']))
+{
+    $output .= '
+    <div id="addNews">
+        <div>
+            <a href="addnews.php" class="admin-control">Додати новину</a>
+        </div>
+    </div>';
+}
+
+$output .= '
     <div class="wrapper2">
         <div id="primary" class="site-content">
             <div id="content" role="main">';
@@ -59,13 +66,19 @@ try{
         }
         $text = substr($text, 0, 400);
         $output .= '<article class="clearfix">
+                        <span>'.$row[3].'</span>
                         <div class="image-container">
                             <img src="data:image;base64, '.$row[5].'"/>
                         </div>
                         <div class="body-container clearfix">
-                            <header class="entry-header">
-                            <div class="entry-admin"><a href="editnews.php?id='.$row[0].'">Редагувати</a> | <a href="?des=del&id='.$row[0].'">Видалити</a></div>
-                                <h2 class="entry-title">
+                            <header class="entry-header">';
+
+        if (isset($_SESSION['isLogged']))
+        {
+            $output .=         '<div class="entry-admin"><a href="editnews.php?id='.$row[0].'">Редагувати</a> | <a href="?des=del&id='.$row[0].'">Видалити</a></div>';
+        }
+
+        $output .=             '<h2 class="entry-title">
                                     <a href="item.php?id='.$row[0].'">'.stripslashes($row[1]).'</a>
                                 </h2>
                             </header>
