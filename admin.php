@@ -22,7 +22,7 @@ if(isset($_POST['login'])) {
     
     if($stmt->rowCount()) {
         $_SESSION['isLogged'] = true;
-        header("Refresh:0; url=news.php");
+        header("Refresh:0; url=index.php");
     }
 }
 
