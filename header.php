@@ -1,6 +1,7 @@
 <?php
 session_start();
-$output = '<!DOCTYPE html>
+$output = '';
+$output .= '<!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -36,10 +37,19 @@ $output = '<!DOCTYPE html>
             <li><a href="staff.php">Співробітники</a></li>
             <li><a href="news.php">Новини</a></li>
             <li><a href="services.php">Послуги</a></li>
+<<<<<<< HEAD
             <li><a href="gallery.php">Галерея</a></li>
             <li><a href="contacts.php">Контакти</a></li>
             <li><a href="#">Вийти</a></li>
           </ul>
+=======
+            <li><a href="contacts.php">Контакти</a></li>';
+        if (isset($_SESSION['isLogged']))
+        {
+           $output .= '<li><a href="logout.php">Вийти</a></li>';
+        }
+          $output .= '</ul>
+>>>>>>> origin/master
         </div><!--/.nav-collapse -->
         <div class="clear"></div>
       </div>

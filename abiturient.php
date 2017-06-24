@@ -282,6 +282,7 @@
           </table>
         </div>
       </div>
+      <a href="/info.pdf" class="staff-block-admin-a edit">Детальніше</a>
     </div>
   </div>
 </div>
