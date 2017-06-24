@@ -6,11 +6,13 @@ $output = '<!DOCTYPE html>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
+  <link  href="css/fotorama.css" rel="stylesheet">
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
   <script type="text/javascript" src="js/ckfinder/ckfinder.js"></script>
   <script type="text/javascript" src="js/headerActive.js"></script>
+  <script src="js/fotorama.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -34,6 +36,7 @@ $output = '<!DOCTYPE html>
             <li><a href="staff.php">Співробітники</a></li>
             <li><a href="news.php">Новини</a></li>
             <li><a href="services.php">Послуги</a></li>
+            <li><a href="gallery.php">Галерея</a></li>
             <li><a href="contacts.php">Контакти</a></li>
             <li><a href="#">Вийти</a></li>
           </ul>
