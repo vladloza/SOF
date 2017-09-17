@@ -65,7 +65,7 @@ try{
         {
             $text .= $elem->nodeValue;
         }
-        $text = substr($text, 0, 400);
+        $text = mb_substr($text, 0, 217, "UTF-8");
         $output .= '<article class="clearfix">
                         <span class="date-wrapper">'.$row[3].'</span>
                         <div class="image-container">
