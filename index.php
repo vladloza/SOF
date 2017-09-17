@@ -1,11 +1,90 @@
-<?php 
+<?php
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-include('header.php'); 
+include('header.php');
 
 $output = '';
 
 $output .= '
+<section>
+     <div class="container">
+        <div class="clearfix services-header-container">
+            <div class="services-header">
+                <h2>Ми навчимо Вас ПРОГРАМУВАТИ ВСЕ!</h2>
+            </div>
+        </div>
+        <div style="background:#f5f5f5"><div class="clearfix it margin-top" >
+            <div class="col-md-4 bottom-it content__container">
+                <h2>Програмування даних</h2>
+            </div>
+            <div class="col-md-4 bottom-it">
+                <div class="content__container">
+                    <h2>Програмування процесів</h2>
+                </div>
+                <img src=\'img/pst_logo.png\' class="newimg"/>
+            </div>
+            <div class="col-md-4 bottom-it content__container">
+                <h2>Програмування інтернет-речей</h2>
+            </div>
+        </div>
+        <div class="clearfix">
+            <h2 class="center-text">ВАШ ПРІОРИТЕТ №1  У СВІТІ ПРОГРАМУВАННЯ!</h2>
+        </div></div>
+        
+     </div>
+</section>
+ <section>
+        <div class="container">
+            <div>
+                <h2 class="center-text">Останні новини</h2>
+            </div>
+            <hr/>
+            <div class="row">
+                <div>';
+try {
+    
+    include("dbconfig.php");
+    $sqlQuery = 'select * from News order by id desc limit 3';
+    
+    $result = $conn->query($sqlQuery);
+    
+    while ($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+        $output .= '
+<div class="col-sm-4">
+    <div class="block-inside-i">
+        <div class="block-content">
+            <a href="item.php?id=' . $row[0] . '">
+                <div class="date-wrapper">
+                    <span>' . $row[3] . '</span>
+                </div>
+                <div class="image-block-wrapper">
+                    <img class="image-block" src="data:image;base64, ' . $row[5] . '"/>
+                </div>
+                <div class="image-caption-wrapper">
+                    <div class="image-caption">
+                        <h4>' . $row[1] . '</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+';
+    }
+}
+catch (Exeption $e) {
+    echo "DB Falied!";
+}
+
+$output .= '
+            </div>
+        </div>
+        <div class="clearfix">
+            <a href="news.php" class="grey-href">Переглянути більше</a>
+        </div>
+        <hr/>
+    </div>
+</section>
 <section class="margin-top">
      <div class="container">
         <div class="col-md-8" style="padding-left: 0px;">
@@ -83,59 +162,6 @@ $output .= '
       <hr>
     </div>
 </section>
-    <section>
-        <div class="container">
-            <div>
-                <h2 class="grey">Останні новини</h2>
-            </div>
-            <div class="row">
-                <div>';
-try{ 
-
-include("dbconfig.php");
-$sqlQuery = 'select * from News order by id desc limit 3';
-
-$result = $conn->query($sqlQuery);
-
-while($row = $result->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT))
-{
-$output .= '
-<div class="col-sm-4">
-    <div class="block-inside-i">
-        <div class="block-content">
-            <a href="item.php?id='.$row[0].'">
-                <div class="date-wrapper">
-                    <span>'.$row[3].'</span>
-                </div>
-                <div class="image-block-wrapper">
-                    <img class="image-block" src="data:image;base64, '.$row[5].'"/>
-                </div>
-                <div class="image-caption-wrapper">
-                    <div class="image-caption">
-                        <h4>'.$row[1].'</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-';
-}
-}
-catch(Exeption $e)
-{
-echo "DB Falied!";
-}
-
- $output .= '
-            </div>
-        </div>
-        <div>
-            <a href="news.php" class="grey-href">Переглянути більше</a>
-        </div>
-    </div>
-</section>
-
 <script>
         $(document).ready(function() {
             var owl = $(\'.owl-carousel\');

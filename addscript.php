@@ -45,8 +45,17 @@ function add_edit($isEmp = false, $id = 0, $title = '', $text = '')
     </div>
 </form>
     <script type="text/javascript">
-            var editor = CKEDITOR.replace( "editor1" );
+            var editor = CKEDITOR.replace( "editor1",
+		  {
+			 filebrowserBrowseUrl : "/js/ckfinder/ckfinder.html",
+			 filebrowserImageBrowseUrl : "/js/ckfinder/ckfinder.html?Type=Images",
+			 filebrowserFlashBrowseUrl : "/js/ckfinder/ckfinder.html?Type=Flash",
+			 filebrowserUploadUrl : "/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+			 filebrowserImageUploadUrl : "/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+			 filebrowserFlashUploadUrl : "/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+		  } );
             CKFinder.setupCKEditor( editor );
+			
         </script>
     </div>
 </div>';
